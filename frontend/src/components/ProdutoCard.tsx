@@ -1,17 +1,16 @@
-import type { Produto } from "../api/models/Produto";
-
+import type { Produto } from "../api/models/Produto"
 
 export default function ProdutoCard({ produto }: { produto: Produto }) {
   return (
-    <div className="w-40 h-40 border border-gray-300 rounded flex flex-col items-center justify-center gap-2 p-3 bg-white">
-      <div className="w-16 h-16 flex items-center justify-center overflow-hidden bg-gray-100 rounded">
+    <div className="group block w-64 rounded-3xl border border-gray-200 bg-white p-6 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl">
+      <div className="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-2xl bg-gray-100 shadow-inner">
         <img
-            src={produto.icone}
-            alt={`Imagem do produto ${produto.nome}`}
-            className="w-full h-full object-cover"
+          src={produto.icone}
+          alt={`Imagem do produto ${produto.nome}`}
+          className="h-full w-full object-contain"
         />
       </div>
-      <h3 className="text-base font-semibold text-center">{produto.nome}</h3>
+      <h3 className="mt-4 text-2xl font-bold text-gray-900">{produto.nome}</h3>
     </div>
   )
 }

@@ -49,11 +49,11 @@ export default function Navbar() {
     return ""
   }, [isHome, isLoja, lojaNome])
 
-  const accentColor = lojaCor || "#047857"
+  const accentColor = lojaCor || "#374151"
 
   return (
-    <nav className="w-full border-b border-gray-200 bg-white">
-      <div className="relative flex w-full items-center py-4">
+    <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white shadow-sm">
+      <div className="relative flex w-full items-center py-4 px-4 sm:px-6">
         <div className="flex flex-wrap items-center gap-4">
           <Link
             to="/"
@@ -69,7 +69,7 @@ export default function Navbar() {
           {isLoja && <FormProduto />}
         </div>
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-lg font-semibold text-gray-900">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-lg font-semibold text-gray-900">
           {pageTitle}
         </div>
 

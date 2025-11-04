@@ -1,27 +1,24 @@
-import { Link } from "react-router-dom";
-import type { Loja } from "../api/models/Loja";
+import { Link } from "react-router-dom"
+import type { Loja } from "../api/models/Loja"
 
 export default function LojaCard({ loja }: { loja: Loja }) {
   return (
-    <div className="w-48 h-48 border border-gray-700 flex flex-col items-center justify-center gap-2 p-4 rounded">
-      <div className="w-20 h-20 flex items-center justify-center overflow-hidden bg-gray-100 rounded">
-        {loja.icone ? (
-          <img
-            src={loja.icone}
-            alt={`Ícone da loja ${loja.nome}`}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <span className="text-sm text-gray-500">Sem ícone</span>
-        )}
+    <Link
+      to={`/loja/${loja.id}`}
+      className="group block w-64 rounded-lg bg-white border border-gray-200 p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 hover:border-gray-300"
+    >
+      <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 shadow-inner">
+        <img
+          src={loja.icone}
+          alt={`Icone da loja ${loja.nome}`}
+          className="h-full w-full object-cover"
+        />
       </div>
-      <h2 className="text-lg font-semibold">{loja.nome}</h2>
-      <Link
-        to={`/loja/${loja.id}`}
-        className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        Ir para a loja
-      </Link>
-    </div>
+      <div className="mt-4 text-center">
+        <h2 className="text-xl font-semibold text-gray-900 transition">
+          {loja.nome}
+        </h2>
+      </div>
+    </Link>
   )
 }

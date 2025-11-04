@@ -64,7 +64,7 @@ export default function FormLoja() {
           setStatusMessage(null)
           setIsOpen(true)
         }}
-        className="flex h-12 min-w-[220px] items-center justify-center rounded-xl border border-emerald-700 bg-emerald-600 px-6 text-base font-semibold text-white shadow transition hover:opacity-90 whitespace-nowrap"
+        className="flex h-12 min-w-[220px] items-center justify-center rounded-xl border border-gray-600 bg-gray-700 px-6 text-base font-semibold text-white shadow transition hover:opacity-90 whitespace-nowrap"
       >
         Criar nova loja
       </button>

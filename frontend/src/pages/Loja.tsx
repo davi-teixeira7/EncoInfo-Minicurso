@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { fetchLoja } from "../api/client"
 import type { Loja } from "../api/models/Loja"
 import ProdutoCard from "../components/ProdutoCard"
+import Banner from "../components/Banner"
 
 export default function Loja() {
   const { lojaId } = useParams<{ lojaId: string }>()
@@ -19,18 +20,7 @@ export default function Loja() {
       className="min-h-screen flex flex-col items-center text-black"
       style={{ backgroundColor: loja.cor_loja || "#ffffff" }}
     >
-      {/* Banner */}
-      <div className="w-full h-64 flex items-center justify-center border-b border-black overflow-hidden bg-white">
-        {loja.banner ? (
-          <img
-            src={loja.banner}
-            alt={`Banner da loja ${loja.nome}`}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <p>Sem banner</p>
-        )}
-      </div>
+      <Banner src={loja.banner} alt={`Banner da loja ${loja.nome}`} />
 
       {/* Content */}
       <div className="w-full max-w-3xl p-6">

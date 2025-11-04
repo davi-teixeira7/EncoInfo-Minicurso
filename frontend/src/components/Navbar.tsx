@@ -43,7 +43,7 @@ export default function Navbar() {
   const pageTitle = useMemo(() => {
     if (isHome) return "Lista de Lojas"
     if (isLoja) {
-      const suffix = lojaNome || "..."
+      const suffix = lojaNome
       return `Loja ${suffix}`
     }
     return ""
@@ -69,7 +69,10 @@ export default function Navbar() {
           {isLoja && <FormProduto />}
         </div>
 
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-lg font-semibold text-gray-900">
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-3xl font-extrabold tracking-tight"
+          style={{ color: accentColor }}
+        >
           {pageTitle}
         </div>
 

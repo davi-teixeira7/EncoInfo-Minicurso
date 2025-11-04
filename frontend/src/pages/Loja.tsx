@@ -6,7 +6,7 @@ import ProdutoCard from "../components/ProdutoCard"
 import Banner from "../components/Banner"
 
 export default function Loja() {
-  const { lojaId } = useParams<{ lojaId: string }>()
+  const { lojaId } = useParams<{ lojaId: string }>() 
   const [loja, setLoja] = useState<Loja | null>(null)
 
   useEffect(() => {
@@ -15,23 +15,29 @@ export default function Loja() {
 
   if (!loja) return <p className="text-center mt-10">Carregando...</p>
 
+  const accentColor = loja.cor_loja || "#1f2937"
+
   return (
     <main
-      className="min-h-screen flex flex-col items-center text-black"
-      style={{ backgroundColor: loja.cor_loja || "#ffffff" }}
+      className="flex min-h-screen flex-col items-center"
+      style={{ backgroundColor: accentColor }}
     >
       <Banner src={loja.banner} alt={`Banner da loja ${loja.nome}`} />
 
-      {/* Content */}
-      <div className="w-full max-w-3xl p-6">
-        <h1 className="text-2xl font-bold">{loja.nome}</h1>
-        {loja.cor_loja && <p>Cor da loja: {loja.cor_loja}</p>}
-
-        <div className="mt-4">
-          <h2 className="text-lg font-semibold mb-2">Produtos</h2>
-          <div className="flex flex-wrap gap-2">
+      <div
+        className="mt-8 w-full max-w-5xl rounded-3xl border border-white/40 bg-white/90 p-8 text-center shadow-xl backdrop-blur-sm"
+        style={{ color: accentColor }}
+      >
+        <div>
+          <h2 className="text-4xl font-black">Produtos</h2>
+          <div className="mt-6 flex flex-wrap justify-center gap-6">
             {loja.produtos.map((produto) => (
-              <ProdutoCard key={produto.id} produto={produto} />
+              <ProdutoCard
+                key={produto.id}
+                imgURL={produto.icone}
+                nome={produto.nome}
+                cor={accentColor}
+              />
             ))}
           </div>
         </div>
